@@ -8,7 +8,7 @@ public class TokenRing {
     static DataOutputStream salida = null;
     static long token = 0;
     static int nodo;
-    static Boolean primera_vez = true;
+    static boolean primera_vez = true;
 
     static class Worker extends Thread {
         @Override
@@ -17,7 +17,6 @@ public class TokenRing {
                 ServerSocket servidor = new ServerSocket(5000+nodo);
                 Socket conexion = servidor.accept();
                 entrada = new DataInputStream(conexion.getInputStream());
-                System.out.println("DemoHilo");
             } catch (Exception e) {
                 System.err.println("Error en el Worker: " + e);
             }
@@ -57,7 +56,7 @@ public class TokenRing {
                         token = entrada.readLong();
                     }
                     token++;
-                    if ((token % (4000 + nodo)) == 0) {
+                    if ((token % (1000001)) == 0) {
                         System.out.println("Valor =" + token);
                     }
                     salida.writeLong(token);
