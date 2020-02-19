@@ -56,9 +56,8 @@ public class TokenRing {
                         token = entrada.readLong();
                     }
                     token++;
-                    if ((token % (1000001)) == 0) {
-                        System.out.println("Valor =" + token);
-                    }
+                    System.out.println("Valor =" + token);
+                    Thread.sleep(200);
                     salida.writeLong(token);
                 }
             }
